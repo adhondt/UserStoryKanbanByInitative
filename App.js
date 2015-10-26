@@ -8,6 +8,8 @@ Ext.define('CustomApp', {
 
 		this.add({
 			xtype: 'rallycombobox',
+			stateful: true,
+			stateId: this.getContext().getScopedStateId('initiative'),
 			width: 600,
 			fieldLabel: 'Select Initiative:',
 			// Display Template
