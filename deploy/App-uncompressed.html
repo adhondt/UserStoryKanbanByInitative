@@ -45,7 +45,6 @@
 					projectScopeUp: false
 				}
 			},
-			// stateful: false,
 			listeners: {
 				select: this._onSelect,
 				ready: this._onLoad,
@@ -61,14 +60,9 @@
 			xtype: 'rallycardboard',
 			types: ['User Story'],
 			attribute: 'ScheduleState',
-			// context: this.getContext(),
+			context: this.getContext(),
 			storeConfig: {
 				fetch: ['Feature'],
-				context: {
-					project: project_oid,
-					projectScopeDown: true,
-					projectScopeUp: false
-				},
 				filters: [
 					this._getFilter()
 				]
@@ -84,9 +78,6 @@
 				editable: false,
 				showAge: true
 			}
-			// rowConfig: {
-				// field: 'Release'
-			// }
 		});
 	},
 	
@@ -116,17 +107,6 @@
 			operator: '=',
 			value: null
 		});
-		// filters = filters.and({
-			// property: 'AcceptedDate',
-			// operator: '<',
-			// value: 'LastMonth'
-		// });
-		// filters = filters.or({
-			// property: 'ScheduleState',
-			// operator: '!=',
-			// value: 'Accepted'
-		// });		
-		// filters.toString();
 		return filters;
 	}
 

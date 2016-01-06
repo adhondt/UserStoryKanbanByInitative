@@ -36,7 +36,6 @@ Ext.define('CustomApp', {
 					projectScopeUp: false
 				}
 			},
-			// stateful: false,
 			listeners: {
 				select: this._onSelect,
 				ready: this._onLoad,
@@ -52,14 +51,9 @@ Ext.define('CustomApp', {
 			xtype: 'rallycardboard',
 			types: ['User Story'],
 			attribute: 'ScheduleState',
-			// context: this.getContext(),
+			context: this.getContext(),
 			storeConfig: {
 				fetch: ['Feature'],
-				context: {
-					project: project_oid,
-					projectScopeDown: true,
-					projectScopeUp: false
-				},
 				filters: [
 					this._getFilter()
 				]
@@ -75,9 +69,6 @@ Ext.define('CustomApp', {
 				editable: false,
 				showAge: true
 			}
-			// rowConfig: {
-				// field: 'Release'
-			// }
 		});
 	},
 	
@@ -107,17 +98,6 @@ Ext.define('CustomApp', {
 			operator: '=',
 			value: null
 		});
-		// filters = filters.and({
-			// property: 'AcceptedDate',
-			// operator: '<',
-			// value: 'LastMonth'
-		// });
-		// filters = filters.or({
-			// property: 'ScheduleState',
-			// operator: '!=',
-			// value: 'Accepted'
-		// });		
-		// filters.toString();
 		return filters;
 	}
 
